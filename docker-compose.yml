@@ -12,7 +12,7 @@ services:
   db:
     image: mongo:bionic
     restart: unless-stopped
-    expose:
+    ports:
       - 172.17.0.1:5069:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
