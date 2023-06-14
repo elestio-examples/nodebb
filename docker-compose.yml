@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  node:
+    image: elestio4test/nodebb:latest
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 172.17.0.1:4956:4567 # use a reverse proxy like Traefik
+
+  db:
+    image: mongo:bionic
+    restart: unless-stopped
+    expose:
+      - 172.17.0.1:5069:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongo:/data/db
