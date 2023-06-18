@@ -1,25 +1,27 @@
 version: "3.3"
-
 services:
-  node:
+  nodebb:
     image: elestio4test/nodebb:latest
+    # command: ["sh","entrypoint.sh"]
     restart: always
-    depends_on:
-      - db
-    ports:
-      - 172.17.0.1:4956:4567 # use a reverse proxy like Traefik
-
-  db:
-    image: mongo:bionic
-    restart: always
-    dns:
-      - 8.8.8.8
-    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "Cluster0"]
-    ports:
-      - 5069:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: ${ADMIN_PASSWORD}
+      URL: "https://nodebbsdsd-u353.vm.elestio.app"
+      DATABASE: "redis"
+      DB_NAME: "0"
+      DB_HOST: "redis"
+      DB_PORT: "8443"
     volumes:
-      - ./mongo:/data/db
-      - ./auth/key:/auth/key
+      - ./data/nodebb:/data
+      - ./uploads:/usr/src/app/public/uploads
+      # - ./config.json:/usr/src/app/config.json
+      - ./entrypoint.sh:/usr/src/app/entrypoint.sh
+    ports:
+      - "172.17.0.1:4956:4567"
+
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - ./data/redis:/data
+    ports:
+      - "172.17.0.1:5069:6379"
