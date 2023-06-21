@@ -12,7 +12,7 @@ services:
       DB_PORT: "8443"
     volumes:
       - ./data/nodebb:/data
-      - ./uploads:/usr/src/app/public/uploads
+      - ./nodebb-files:/usr/src/app/public/uploads
       # - ./config.json:/usr/src/app/config.json
       - ./entrypoint.sh:/usr/src/app/entrypoint.sh
     ports:
@@ -22,6 +22,6 @@ services:
     image: redis
     restart: always
     volumes:
-      - ./data/redis:/data
+      - ./nodebb-data:/data
     ports:
       - "172.17.0.1:5069:6379"
