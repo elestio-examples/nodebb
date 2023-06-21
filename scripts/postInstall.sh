@@ -3,7 +3,7 @@ set -o allexport; source .env; set +o allexport;
 
 #wait until the server is ready
 echo "Waiting for software to be ready ..."
-sleep 45s;
+sleep 75s;
 
 #register the local server in the web ui
 
@@ -21,7 +21,7 @@ curl http://${target}/ \
 
   docker-compose down;
 
-  cat << EOT >> ./config.json
+  cat << EOT >> ./nodebb-config/config.json
 {
     "url": "https://$DOMAIN:443",
     "secret": "$ADMIN_PASSWORD",
@@ -36,6 +36,6 @@ curl http://${target}/ \
 }
 EOT
 
-  sed -i "s~# - ./config.json:/usr/src/app/config.json~- ./config.json:/usr/src/app/config.json~g" ./docker-compose.yml
+  sed -i "s~# - ./nodebb-config/config.json:/usr/src/app/config.json~- ./nodebb-config/config.json:/usr/src/app/config.json~g" ./docker-compose.yml
 
   docker-compose up -d

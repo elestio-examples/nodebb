@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   nodebb:
-    image: elestio4test/nodebb:latest
+    image: elestio/nodebb:latest
     # command: ["sh","entrypoint.sh"]
     restart: always
     environment:
@@ -11,9 +11,9 @@ services:
       DB_HOST: "redis"
       DB_PORT: "8443"
     volumes:
-      - ./data/nodebb:/data
+      # - ./data/nodebb:/data
       - ./nodebb-files:/usr/src/app/public/uploads
-      # - ./config.json:/usr/src/app/config.json
+      # - ./nodebb-config/config.json:/usr/src/app/config.json
       - ./entrypoint.sh:/usr/src/app/entrypoint.sh
     ports:
       - "172.17.0.1:4956:4567"
