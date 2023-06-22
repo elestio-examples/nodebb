@@ -10,8 +10,14 @@ Deploy NodeBB server with CI/CD on Elestio
 
 # Once deployed ...
 
+You can open NodeBB ADMIN UI here:
+
+    URL: https://[CI_CD_DOMAIN]/admin
+    email: root
+    password: [ADMIN_PASSWORD]
+
 You can open NodeBB UI here:
 
     URL: https://[CI_CD_DOMAIN]
-    email: [ADMIN_EMAIL]
+    email: root
     password: [ADMIN_PASSWORD]
