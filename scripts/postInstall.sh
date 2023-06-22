@@ -16,7 +16,7 @@ curl http://${target}/ \
   -H 'content-type: application/x-www-form-urlencoded' \
   -H 'upgrade-insecure-requests: 1' \
   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' \
-  --data-raw 'url=https%3A%2F%2F'${DOMAIN}:443'&admin%3Ausername=admin&admin%3Aemail='${ADMIN_EMAIL}'&admin%3Apassword='${ADMIN_PASSWORD}'&admin%3ApasswordConfirm='${ADMIN_PASSWORD}'&database=redis&redis%3Ahost=172.17.0.1&redis%3Aport=5069&redis%3Apassword='${REDIS_PASSWORD}'&redis%3Adatabase=0' \
+  --data-raw 'url=https%3A%2F%2F'${DOMAIN}:443'&admin%3Ausername=admin&admin%3Aemail='${ADMIN_EMAIL}'&admin%3Apassword='${ADMIN_PASSWORD}'&admin%3ApasswordConfirm='${ADMIN_PASSWORD}'&database=redis&redis%3Ahost=172.17.0.1&redis%3Aport=6379&redis%3Apassword='${REDIS_PASSWORD}'&redis%3Adatabase=0' \
   --compressed
 
   docker-compose down;
