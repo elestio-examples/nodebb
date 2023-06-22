@@ -2,21 +2,15 @@ ports:
   - protocol: "HTTPS"
     targetProtocol: "HTTP"
     listeningPort: "443"
-    targetPort: "4956"
-    targetIP: "172.17.0.1"
-    public: true
-    path: "/"
-    isAuth: false
-  - protocol: "TCP"
-    targetProtocol: "TCP"
-    listeningPort: "8443"
-    targetPort: "5069"
+    targetPort: "4567"
     targetIP: "172.17.0.1"
     public: true
     path: "/"
     isAuth: false
 environments:
   - key: "ADMIN_PASSWORD"
+    value: "random_password"
+  - key: "REDIS_PASSWORD"
     value: "random_password"
   - key: "ADMIN_EMAIL"
     value: "[EMAIL]"
