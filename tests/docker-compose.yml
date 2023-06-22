@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   nodebb:
-    image: elestio/nodebb:${SOFTWARE_VERSION_TAG}
+    image: elestio4test/nodebb:latest
     restart: always
     environment:
       URL: "https://${DOMAIN}"
