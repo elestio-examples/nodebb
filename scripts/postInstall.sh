@@ -19,6 +19,8 @@ curl http://${target}/ \
   --data-raw 'url=https%3A%2F%2F'${DOMAIN}:443'&admin%3Ausername=root&admin%3Aemail='${ADMIN_EMAIL}'&admin%3Apassword='${ADMIN_PASSWORD}'&admin%3ApasswordConfirm='${ADMIN_PASSWORD}'&database=redis&redis%3Ahost=redis&redis%3Aport=6379&redis%3Apassword='${REDIS_PASSWORD}'&redis%3Adatabase=0' \
   --compressed
 
+  sleep 75s;
+
   docker-compose down;
 
   cat << EOT >> ./nodebb-config/config.json
