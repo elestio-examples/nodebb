@@ -1,6 +1,7 @@
 version: "3.3"
 services:
   nodebb:
+    user: 0:0
     image: elestio/nodebb:${SOFTWARE_VERSION_TAG}
     restart: always
     environment:
