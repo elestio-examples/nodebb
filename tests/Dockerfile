@@ -1,4 +1,4 @@
-FROM node:lts as npm
+FROM --platform=$BUILDPLATFORM node:lts as npm
 
 RUN mkdir -p /usr/src/build && \
     chown -R node:node /usr/src/build
@@ -38,6 +38,4 @@ ENV NODE_ENV=production \
 
 EXPOSE 4567
 
-
 CMD ./entrypoint.sh && node ./nodebb build; node ./nodebb start
-
