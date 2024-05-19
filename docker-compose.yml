@@ -20,7 +20,7 @@ services:
   redis:
     image: redis
     restart: always
-    command: redis-server --requirepass ${REDIS_PASSWORD}
+    command: redis-server --appendonly yes --loglevel warning --requirepass ${REDIS_PASSWORD}
     volumes:
       - ./nodebb-data:/data
     ports:
